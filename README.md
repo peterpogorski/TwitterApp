@@ -1,9 +1,12 @@
 # TwitterApp
 
-Prerequisite: Node.js
-Prerequisite: Bower
+TwitterApp is a web application that allows you to search any term on Twitter and displays the most recent tweets.
 
-First run
+## Requirements
+*Node.js
+*Bower
+
+##Setup
 
 ```
 npm install
@@ -17,6 +20,3 @@ To Start Server
 cd server
 node server
 ```
-
-
-TwitterApp is a web application that allows you to search any term on Twitter and displays the most recent tweets.
