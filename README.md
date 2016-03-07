@@ -20,3 +20,5 @@ To Start Server
 cd server
 node server
 ```
+
+Open the app in browser at  http://localhost:3000
