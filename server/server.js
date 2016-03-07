@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var https = require('https');
 var qs = require('qs');
+var sentiment = require('sentiment');
 
 var app = express();
 var port = 3000;
@@ -13,6 +14,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
 app.use(express.static('../app'));
+
+var analyzeSentiment = function(data) {
+    
+    for(var i = 0; i < data.statuses.length; i++){
+        var a = sentiment(data.statuses[i].text);
+        data.statuses[i].sentiment = a;
+    }
+    return data;
+}
 
 app.get('/twitter/tweets', function(req, res) {
     var options = {
@@ -26,7 +36,9 @@ app.get('/twitter/tweets', function(req, res) {
         }
     };
     var success = function(data) {
-        res.json(data);
+        var sentimentTweets = analyzeSentiment(data);
+        //res.json(data);
+        res.json(sentimentTweets);
     };
     var err = function(data) {
         res.json(data);

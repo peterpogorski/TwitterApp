@@ -12,7 +12,7 @@
 <br>
 <br>
 <div class="col-md-12" ng-repeat="tweet in tweets">
-    <div class="panel panel-primary">
+    <div ng-class="{'panel panel-success' : tweet.sentiment.score > 0, 'panel panel-info' : tweet.sentiment.score === 0, 'panel panel-danger' : tweet.sentiment.score < 0}">
         <div class="panel-heading">
             <h3 class="panel-title">{{tweet.user.name}} <a href="https://twitter.com/{{tweet.user.screen_name}}" target="_blank">
             	@{{tweet.user.screen_name}}
