@@ -9,7 +9,7 @@ var port = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
-app.use(express.static('../app'));
+app.use(express.static('../app')); 
 
 app.listen(port);
 console.log("Started Node.js server on port " + port);
