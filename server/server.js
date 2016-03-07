@@ -2,9 +2,12 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var https = require('https');
+var qs = require('qs');
 
 var app = express();
 var port = 3000;
+
+var config = require('./config');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -14,12 +17,12 @@ app.use(express.static('../app'));
 app.get('/twitter/tweets', function(req, res) {
     var options = {
         host: 'api.twitter.com',
-        path: '/1.1/search/tweets.json?' + 'q=deadpool',
+        path: '/1.1/search/tweets.json?' + qs.stringify(req.query),
         method: 'GET',
         headers: {
             'accept': '*/*',
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer AAAAAAAAAAAAAAAAAAAAAM31twAAAAAAbOmtgBtmlp3HbpfsuBYw2iQM%2FlY%3DqnzJVChXfBRKKC2j58OYY6qgVQpgWgO1q5NNd17nSNJzghS1PF'
+            'Authorization': 'Bearer ' + config.bearer
         }
     };
     var success = function(data) {

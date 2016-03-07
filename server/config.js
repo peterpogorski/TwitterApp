@@ -1,0 +1,3 @@
+module.exports = {
+	'bearer' : 'AAAAAAAAAAAAAAAAAAAAAM31twAAAAAAbOmtgBtmlp3HbpfsuBYw2iQM%2FlY%3DqnzJVChXfBRKKC2j58OYY6qgVQpgWgO1q5NNd17nSNJzghS1PF'
+};
