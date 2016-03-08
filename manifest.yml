@@ -1,5 +1,5 @@
 applications:
 - name: twitterapp
   host: twitterapp-ppogorski
-  memory: 128M
+  memory: 256M
   command: npm start
