@@ -6,7 +6,8 @@ angular.module('twitterapp').controller("HomeCtrl", function($scope, $http, $loc
             method: "GET",
             params: {
                 q: search,
-                result_type: "recent"
+                result_type: "recent",
+                lang : "en"
             },
             url: $location.protocol() + '://'+ $location.host() + ':' + $location.port() + '/twitter/tweets'
         }
