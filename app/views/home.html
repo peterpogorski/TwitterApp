@@ -32,14 +32,14 @@
             <small>{{tweet.created_at.substring(0,16)}}</small>
         </div>
 
-         <div class="panel-footer" ng-show="tweet.sentiment.score <0">
+         <div class="panel-footer" ng-show="tweet.sentiment.score < 0 && tweet.sentiment.negative.length > 0">
          	<b>Possible Negative Words</b>
          	<div ng-repeat="word in tweet.sentiment.negative">
         		{{word}}
         	</div>	
         </div>
 
-         <div class="panel-footer" ng-show="tweet.sentiment.score >0">
+         <div class="panel-footer" ng-show="tweet.sentiment.score > 0 && tweet.sentiment.positive.length > 0">
          	<b>Possible Positive Words</b>
          	<div ng-repeat="word in tweet.sentiment.positive">
         		{{word}}
