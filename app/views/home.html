@@ -1,11 +1,19 @@
-<div class="form-group has-success">
-    <label class="form-control-label" for="inputSuccess1">Twitter App</label>
-    <input ng-model="search" type="text" class="form-control form-control-success" id="inputSuccess1">
+<div class="page-header">
+    <div class="text-primary" align="center">
+        <h1>Twitter Sentiment Analysis</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="form-group has-primary">
+            <input ng-model="search" type="text" class="form-control form-control-primary" id="inputSuccess1">
+        </div>
+    </div>
 </div>
 <div class="row">
     <div class="col-md-12">
         <div align="center">
-            <button type="button" class="btn btn-success" ng-click="searchTwitter(search)">Twitter Search</button>
+            <button type="button" class="btn btn-primary" ng-click="searchTwitter(search)">Twitter Search</button>
         </div>
     </div>
 </div>
