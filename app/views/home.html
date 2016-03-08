@@ -19,6 +19,7 @@
 </div>
 <br>
 <br>
+
 <div class="col-md-12" ng-repeat="tweet in tweets">
     <div ng-class="{'panel panel-success' : tweet.sentiment.score > 0, 'panel panel-info' : tweet.sentiment.score === 0, 'panel panel-danger' : tweet.sentiment.score < 0}">
         <div class="panel-heading">
@@ -28,6 +29,22 @@
         </div>
         <div class="panel-body">
             <p ng-bind-html="tweet.text | TweetLinky"></p>
+            <small>{{tweet.created_at.substring(0,16)}}</small>
         </div>
+
+         <div class="panel-footer" ng-show="tweet.sentiment.score <0">
+         	<b>Possible Negative Words</b>
+         	<div ng-repeat="word in tweet.sentiment.negative">
+        		{{word}}
+        	</div>	
+        </div>
+
+         <div class="panel-footer" ng-show="tweet.sentiment.score >0">
+         	<b>Possible Positive Words</b>
+         	<div ng-repeat="word in tweet.sentiment.positive">
+        		{{word}}
+        	</div>	
+        </div>
+
     </div>
 </div>
