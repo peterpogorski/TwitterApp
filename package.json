@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   "homepage": "https://github.com/peterpogorski/TwitterApp#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "cfenv": "^1.0.3",
     "express": "^4.13.4",
     "https": "^1.0.0",
     "morgan": "^1.7.0",

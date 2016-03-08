@@ -4,16 +4,19 @@ var morgan = require('morgan');
 var https = require('https');
 var qs = require('qs');
 var sentiment = require('sentiment');
+var cfenv = require('cfenv');
 
 var app = express();
-var port = 3000;
+var cf = cfenv.getAppEnv();
+var host = (cf.bind) ? cf.bind : 'localhost';
+var port = (cf.port) ? cf.port : 3000;
 
 var config = require('./config');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
-app.use(express.static('../app'));
+app.use(express.static('./app'));
 
 var analyzeSentiment = function(data) {
     
@@ -70,5 +73,5 @@ app.get('/twitter/tweets', function(req, res) {
 });
 
 
-app.listen(port);
+app.listen(port, host);
 console.log("Started Node.js server on port " + port);

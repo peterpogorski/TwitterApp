@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('twitterapp').controller("HomeCtrl", function($scope, $http) {
+angular.module('twitterapp').controller("HomeCtrl", function($scope, $http, $location) {
     $scope.searchTwitter = function(search) {
         var requestOptions = {
             method: "GET",
@@ -8,7 +8,7 @@ angular.module('twitterapp').controller("HomeCtrl", function($scope, $http) {
                 q: search,
                 result_type: "recent"
             },
-            url: "http://localhost:3000/twitter/tweets"
+            url: $location.protocol() + '://'+ $location.host() + ':' + $location.port() + '/twitter/tweets'
         }
         $http(requestOptions).then(function success(response) {
                 $scope.tweets = response.data.statuses;
