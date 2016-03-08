@@ -33,14 +33,14 @@
         </div>
 
          <div class="panel-footer" ng-show="tweet.sentiment.score < 0 && tweet.sentiment.negative.length > 0">
-         	<b>Possible Negative Words</b>
+         	<b>Negative Words</b>
          	<div ng-repeat="word in tweet.sentiment.negative">
         		{{word}}
         	</div>	
         </div>
 
          <div class="panel-footer" ng-show="tweet.sentiment.score > 0 && tweet.sentiment.positive.length > 0">
-         	<b>Possible Positive Words</b>
+         	<b>Positive Words</b>
          	<div ng-repeat="word in tweet.sentiment.positive">
         		{{word}}
         	</div>	
