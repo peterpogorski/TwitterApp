@@ -27,7 +27,7 @@
             </a></h3>
         </div>
         <div class="panel-body">
-            {{tweet.text}}
+            <p ng-bind-html="tweet.text | TweetLinky"></p>
         </div>
     </div>
 </div>
